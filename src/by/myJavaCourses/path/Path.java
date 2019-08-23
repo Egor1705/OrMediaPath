@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import by.myJavaCourses.view.View;
+
 public class Path {
 
 	
@@ -46,7 +48,7 @@ public class Path {
 		push(start, 0); 
 		while ((p = checkOfEmptiness()) != null) { 
 			if (p.equals(end)) {
-				System.out.print("Hайден путь длины ");
+				System.out.print("the way has been founded with the length ");
 				System.out.println(n);
 			}
 			
@@ -63,10 +65,10 @@ public class Path {
 				push(new Point(p.getX() - 1, p.getY()), n);
 		}
 		if (array[end.getY()][end.getX()] == Integer.MAX_VALUE) {
-			System.out.println("Пути не существует !!!");
+			View.messageError();
 			return null;
 		} else
-			System.out.println("Поиск завершен, пpойдемся по пути !!!");
+			View.messageSuccess();
 		List<Point> path = new ArrayList<>();
 		path.add(end);
 		int x = end.getX();
@@ -153,12 +155,13 @@ public class Path {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		int[][] array = {
 				{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 				{ 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 },
 				{ 0, 1, 0, 1, 0, 0, 1, 0, 0, 0 },
 				{ 0, 1, 0, 1, 1, 1, 1, 1, 1, 0 }, 
-				{ 0, 1, 0, 2, 1, 1, 0, 0, 1, 0 }, 																										// лабиpинт
+				{ 0, 1, 0, 2, 1, 1, 0, 0, 1, 0 }, 																										// пїЅпїЅпїЅпїЅpпїЅпїЅпїЅ
 				{ 0, 1, 0, 1, 0, 0, 1, 0, 1, 0 }, 
 				{ 0, 1, 0, 1, 0, 1, 1, 0, 1, 0 }, 
 				{ 0, 1, 0, 0, 0, 0, 0, 0, 1, 0 }, 
